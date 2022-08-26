@@ -14,8 +14,8 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="150dp"
         android:hint="Peso"
-        android:padding="20dp"
         android:inputType="number"
+        android:padding="20dp"
         android:textColorHint="@color/dark_blue" />
 
     <EditText
@@ -25,7 +25,20 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:hint="Altura"
-        android:padding="20dp"
         android:inputType="number"
+        android:padding="20dp"
         android:textColorHint="@color/dark_blue" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/light_blue"
+        android:text="Calcular IMC"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </LinearLayout>
