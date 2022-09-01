@@ -22,8 +22,24 @@ class MainActivity : AppCompatActivity() {
       if (editWeight.isEmpty() || editHeight.isEmpty()) {
         txt_message.setText("Preencha todos os campos")
       } else {
-
+        calculateIMC(editWeight.toInt(), editHeight.toFloat())
       }
     }
+  }
+
+  private fun calculateIMC(weight: Int, height: Float) {
+    val resultMessage = binding.txtMessage
+    val imc = weight / (height * height)
+
+    val imcMessage = when {
+      imc <= 18.5 -> "Peso Abaixo"
+      imc <= 24.9 -> "Peso Normal"
+      imc <= 29.9 -> "Sobrepeso"
+      imc <= 34.9 -> "Obesidade (Grau 1)"
+      imc <= 39.9 -> "Obesidade (Grau 2)"
+      else -> "Obesidade Mórbida"
+    }
+
+    resultMessage.setText("IMC: ${imc.toString()} \n $imcMessage")
   }
 }
