@@ -2,6 +2,8 @@ package com.enrique.imccalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.enrique.imccalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -41,5 +43,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     resultMessage.setText("IMC: ${imc.toString()} \n $imcMessage")
+  }
+
+  override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    val inflate = menuInflater
+    inflate.inflate(R.menu.main_menu, menu)
+
+    return true
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    when (item.itemId) {
+      R.id.refresh -> {
+        val cleanEditWeight = binding.editWeight
+        val cleanEditHeight = binding.editHeight
+        val cleanMessage = binding.txtMessage
+
+        cleanEditWeight.setText("")
+        cleanEditHeight.setText("")
+        cleanMessage.setText("")
+      }
+    }
+
+    return super.onOptionsItemSelected(item)
   }
 }
